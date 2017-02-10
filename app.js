@@ -3,22 +3,23 @@ var pikePlace = {
 	min: 17,
 	max: 88,
 	avg: 5.2,
-  // Uses a method of that object to generate a random number of customers per hour
+	// Uses a method of that object to generate a random number of customers per hour
 	getRandom: function(min, max) {
 		return Math.random() * (max-min + 1) + min;
+	},
+	hour: ['10am - 11am : ','11am - 12pm : ', '12pm - 1pm : ','1pm - 2pm : ','2pm - 3pm : ','3pm - 4pm : ','4pm - 5pm : ']
+};
+
+// Function for displaying the values of each array as lists in the browser
+function cookies_purchased_hour() {
+	// Using for loop to display for each hours
+	for (var i = 0; i < 7; i++)  {
+		// pikePlace.getRandom(pikePlace.min, pikePlace.max)* 5.2 = simulated amounts of cookies purchased for each hour
+		document.write(pikePlace.hour[i] + Math.floor(pikePlace.getRandom(pikePlace.min, pikePlace.max)*(pikePlace.avg))+ '<br />');
 	}
 }
-pikePlace.getRandom(pikePlace.min, pikePlace.max)
-// pikePlace.getRandom(pikePlace.min, pikePlace.max)* 5.2 = simulated amounts of cookies purchased for each hour
-var pikePlaceHourlyTotal = Math.floor((pikePlace.getRandom(pikePlace.min, pikePlace.max))*(pikePlace.avg))
-var pikePlaceHourlyTotal2 = Math.floor((pikePlace.getRandom(pikePlace.min, pikePlace.max))*(pikePlace.avg))
-// Using for loop to calculate for each hours
 
-// Display the values of each array as unordered lists in the browser
+var liEl = document.getElementById("hour"); // This is a reference to the li element
+hour.textContent = cookies_purchased_hour();
 
-// Display the lists on index.html.
-
-console.log(pikePlace.getRandom(pikePlace.min, pikePlace.max));
-console.log(pikePlace.avg)
-console.log(pikePlaceHourlyTotal);
-console.log(pikePlaceHourlyTotal2);
+// var pikePlaceHourlyTotal = pikePlaceHourlyTotal1 + pikePlaceHourlyTotal2
