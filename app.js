@@ -6,15 +6,17 @@ var pikePlace = {
 	hour: ['10am - 11am : ','11am - 12pm : ', '12pm - 1pm : ','1pm - 2pm : ','2pm - 3pm : ','3pm - 4pm : ','4pm - 5pm : ','Total : '],
 	// Create empty array to store all sales by each hour
 	sale: [],
+	totalsale: 0,
 	// Uses a method of that object to generate a random number of customers per hour
-	getRandom: function() {
-		return Math.random() * (this.max-this.min + 1) + this.min;
+	getRandom: function(min, max) {
+		return Math.random() * (max-min + 1) + min;
 	},
 	getHourlySale: function() {
 		for (var i = 0; i < 7; i++) {
-		var total = Math.floor(this.getRandom() * this.avg);
-		// Total value will add into sale array upto 6times
-		this.sale.push(total);
+			var total = Math.floor(this.getRandom(this.min, this.max) * this.avg);
+			// Total value will add into sale array upto 6times
+			this.sale.push(total);
+			this.totalsale += total;
 		}
 	},
 	render: function() {
@@ -33,11 +35,12 @@ var pikePlace = {
 		}
 		var total = document.createElement('li');
 		// Create and populate an total element for sales out of array
-		total.textContent = pikePlace.hour[7] + (this.sale[0]+this.sale[1]+this.sale[2]+this.sale[3]+this.sale[4]+this.sale[5]+this.sale[6]);
+		total.textContent = pikePlace.hour[7] + (this.totalsale);
 		parent.appendChild(total);
 	}
 };
 pikePlace.render();
+console.log(pikePlace.totalsale);
 //
 
 // Stores the min/max hourly customers, and the average cookies per customer, in object properties
@@ -54,9 +57,9 @@ var seaTacAirPort = {
 	},
 	getHourlySale: function() {
 		for (var i = 0; i < 7; i++) {
-		var total = Math.floor(this.getRandom() * this.avg);
-		// Total value will add into sale array upto 6times
-		this.sale.push(total);
+			var total = Math.floor(this.getRandom() * this.avg);
+			// Total value will add into sale array upto 6times
+			this.sale.push(total);
 		}
 	},
 	render: function() {
@@ -96,9 +99,9 @@ var southCenter = {
 	},
 	getHourlySale: function() {
 		for (var i = 0; i < 7; i++) {
-		var total = Math.floor(this.getRandom() * this.avg);
-		// Total value will add into sale array upto 6times
-		this.sale.push(total);
+			var total = Math.floor(this.getRandom() * this.avg);
+			// Total value will add into sale array upto 6times
+			this.sale.push(total);
 		}
 	},
 	render: function() {
@@ -138,9 +141,9 @@ var bellevueSquare = {
 	},
 	getHourlySale: function() {
 		for (var i = 0; i < 7; i++) {
-		var total = Math.floor(this.getRandom() * this.avg);
-		// Total value will add into sale array upto 6times
-		this.sale.push(total);
+			var total = Math.floor(this.getRandom() * this.avg);
+			// Total value will add into sale array upto 6times
+			this.sale.push(total);
 		}
 	},
 	render: function() {
@@ -180,9 +183,9 @@ var alki = {
 	},
 	getHourlySale: function() {
 		for (var i = 0; i < 7; i++) {
-		var total = Math.floor(this.getRandom() * this.avg);
-		// Total value will add into sale array upto 6times
-		this.sale.push(total);
+			var total = Math.floor(this.getRandom() * this.avg);
+			// Total value will add into sale array upto 6times
+			this.sale.push(total);
 		}
 	},
 	render: function() {
