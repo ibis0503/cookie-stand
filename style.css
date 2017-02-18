@@ -1,45 +1,142 @@
-.primary-1 { background-color: #7b7b7b }
-.primary-2 { background-color: #ededed }
-.primary-0 { background-color: #dfdfdf }
-.primary-3 { background-color: #000000 }
+body {
+	margin: 0;
+}
 
-.color-table {
-	border-collapse:collapse;
-	border:none;
-	border-spacing:0;
-	font-size:100%;
-	}
+#nav {
+	background-image: radial-gradient(circle 248px at center, #16d9e3 0%, #30c7ec 47%, #46aef7 100%);
+	height: 50px;
+}
 
-.color-table th {
-	text-align: right;
-	vertical-align: middle;
-	font-size: 100%;
-	font-weight: normal;
-	border: none;
-	}
+nav {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	max-width: 940px;
+	margin: 0 auto;
+	padding: auto;
+}
 
-.color-table td.sample {
-	width:6em; height:6em;
-	padding: 10px;
-	text-align:center;
-	vertical-align:middle;
-	font-size:90%;
-	border: 1px solid white;
-	white-space:nowrap;
-	}
+#main-nav {
+	display: flex;
+	width: 40%;
+	justify-content: space-between;
+}
 
-.color-table td.sample-0 {
-	width:18em;
-	}
+#title {
+	max-width: 940px;
+	margin: 0 auto;
+	height: 140px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
 
-.color-table .white { margin-bottom:0.2em; color:white }
-.color-table .black { margin-top:0.2em; color:black }
+#store {
+	max-width: 940px;
+	margin: 0 auto;
+	height: 465px;
+}
 
-hr {
-  margin: 2em 0 1em 0;
-  border:none;
-  border-bottom:1px solid silver;
-  }
+#background-image {
+	width: 100%;
+	margin: 0 auto;
+	height: 465px;
+	background-image: url(../cookie-stand/assets/background.jpg);
+	background-position: center;
+	background-size: cover;
+}
+
+#store-info {
+	width: 40%;
+	height: 100%;
+	background-color: rgba(255, 255, 255, 0.90);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+#number {
+	padding-top: 30px;
+}
+
+#sub-title {
+	max-width: 940px;
+	margin: 0 auto;
+	height: 140px;
+	display: flex;
+	align-items: center;
+}
+
+#store-more {
+	max-width: 940px;
+	width: 100%;
+	margin: 0 auto;
+	height: 400px;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+}
+
+#footer {
+	align-items: flex-end;
+}
+
+#footer-contents {
+	background-color: #4A4A4A;
+	display: flex;
+  padding: 1rem;
+	justify-content: center;
+	z-index: 0;
+	height: 200px;
+	margin-top: 50px;
+}
+
+.column-detail {
+	width: 300px;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.first {
+	width: 300px;
+	margin: 0;
+	height: 195px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #B5B5B5;
+	margin: 0;
+	background-image: url(../cookie-stand/assets/fishies.jpg);
+	background-position: center;
+	background-size: cover;
+}
+
+.two {
+	width: 300px;
+	margin: 0;
+	height: 195px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #B5B5B5;
+	margin: 0;
+	background-image: url(../cookie-stand/assets/family.jpg);
+	background-position: center;
+	background-size: cover;
+}
+
+.three {
+	width: 300px;
+	margin: 0;
+	height: 195px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #B5B5B5;
+	margin: 0;
+	background-image: url(../cookie-stand/assets/shirt.jpg);
+	background-position: top;
+	background-size: cover;
+}
 
 @font-face {
   font-family: 'Suranna', serif;
@@ -48,31 +145,50 @@ hr {
 }
 
 h1 {
-  font-family: 'Suranna';
+  font-family: 'Roboto';
   font-weight: 100;
   color: #000000;
   font-size: 32px;
 }
 
 h2 {
-  font-family: 'Suranna';
+  font-family: 'Roboto';
   font-weight: 100;
   color: #000000;
-  font-size: 18px;
+  font-size: 28px;
 }
 
 h3 {
-  font-family: 'Suranna';
-  color: #F16522;
-  font-weight: normal;
-  font-size: 48px;
-  margin-bottom: 5px;
+  font-family: 'Roboto';
+  font-weight: 500;
+  color: #000000;
+  font-size: 18px;
+	margin: 0;
+	line-height: 24px;
+}
+
+h4 {
+  font-family: 'Roboto';
+  font-weight: 100;
+  color: #000000;
+  font-size: 18px;
+	margin: 0;
+	line-height: 24px;
+}
+
+h5 {
+  font-family: 'Roboto';
+  font-weight: 500;
+  color: #000000;
+  font-size: 16px;
+	margin: 15px 0 0 0;
+	line-height: 20px;
 }
 
 li{
-  font-family: 'Helvetica';
-  color: #7b7b7b;
-  font-weight: normal;
+  font-family: 'Roboto';
+  color: #fff;
+  font-weight: 400;
   font-size: 14px;
   list-style-type: none;
 }
@@ -82,9 +198,16 @@ p {
   color: #7b7b7b;
   font-weight: normal;
   font-size: 14px;
-  line-height: 32px;
-	padding: 6px, 12px;
-	border: 1px;
+  line-height: 20px;
+}
+
+.links {
+	font-family: 'Roboto';
+	color: #4990E2;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 20px;
+	text-decoration: none;
 }
 
 #cookieTable {
