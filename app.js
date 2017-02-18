@@ -1,5 +1,24 @@
 'use strict';
-// build Constructor Functions
+
+var allItems = [];
+// call 'form' into variable form
+var form = document.getElementById('form');
+// call 'table' into table
+var table = document.getElementById('cookieTable');
+// call 'table-body' into tbody
+var tbody = document.getElementById('table-body');
+// call 'tfoot' into tfoot[0]
+var tfoot = document.getElementsByTagName('tfoot')[0];
+
+// Set a variable
+var pikePlace = new cookieStand('Pike Place', 17, 88, 5.2);
+var seaTac = new cookieStand('SeaTac Airport', 6, 24, 1.2);
+var southCenter = new cookieStand('Southcenter', 11, 38, 1.9);
+var bellevueSquare = new cookieStand('Bellevue Square', 11, 38, 1.9);
+var alki = new cookieStand('Alki', 3, 24, 2.6);
+
+
+// add top 5 items into table this is Constructor Functions
 function cookieStand(name, min, max, avg) {
 	this.name = name;
 	this.min = min;
@@ -7,7 +26,9 @@ function cookieStand(name, min, max, avg) {
 	this.avg = avg;
 	this.sale = [];
 	this.totalsale = 0;
-	this.getRandom = function(min, max) {
+};
+
+	cookieStand.prototype.getRandom = function(min, max) {
 		return Math.random() * (max-min + 1) + min;
 	};
 
@@ -46,15 +67,8 @@ function cookieStand(name, min, max, avg) {
 		total.textContent = this.totalsale;
 		trEl.appendChild(total);
 		cookieTable.appendChild(trEl);
-	}
-};
+	};
 
-// Set a variable
-var pikePlace = new cookieStand('Pike Place', 17, 88, 5.2);
-var seaTac = new cookieStand('SeaTac Airport', 6, 24, 1.2);
-var southCenter = new cookieStand('Southcenter', 11, 38, 1.9);
-var bellevueSquare = new cookieStand('Bellevue Square', 11, 38, 1.9);
-var alki = new cookieStand('Alki', 3, 24, 2.6);
 // Make a call
 pikePlace.renderAsRow();
 seaTac.renderAsRow();
@@ -67,10 +81,11 @@ var cookieForm = document.getElementById('form');
 //generate input into table
 function generateCookieForm(event) {
 	event.preventDefault();
-	var store_name = document.getElementById('name');
-	var min_cust = document.getElementById('min');
-	var max_cust = document.getElementById('max');
-	var avg_cookie = document.getElementById('avg');
+
+	var store_name = event.target.name.value;
+	var min_cust = parseFloat(event.target.min.value);
+	var max_cust = parseFloat(event.target.max.value);
+	var avg_cookie = parseFloat(event.target.avg.value);
 	//adding the newCookieStore to the cookieStandsArray
 	var newCookieStore = new cookieStand(store_name, min_cust, max_cust, avg_cookie);
 	// Make a call
@@ -83,5 +98,3 @@ function generateCookieForm(event) {
 }
 //listening for the click and running handler above
 cookieForm.addEventListener('submit', generateCookieForm);
-console.log(pikePlace.name);
-console.log(newCookieStore.name);
