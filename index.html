@@ -7,6 +7,32 @@
 </head>
 <body>
   <h1>Cookie Stand</h1>
+
+  <form id="form">
+  <fieldset>
+    <legend>Add store name, min/max customers, and average cookies here. </legend>
+
+    <!--make a block-level input  -->
+    <!-- <div> -->
+      <label for="name">Store name:</label>
+      <input type="text" name="name" required>
+      <!-- <input type="password" name="name" required> -->
+    <!-- </div> -->
+
+    <!--everything else in the form will be inline  -->
+    <label for="min">Minimum customers:</label>
+    <input type="number" name="min" min="0" max="1000" required> <!-- can't input lower than 0 larger than 1000- -->
+
+    <label for="max">Maximum customers:</label>
+    <input type="number" name="max" min="minCust" max="1000" required> <!-- can't input lower than 0 larger than 1000- -->
+
+    <label for="avg">Average cookies:</label>
+    <input type="number" name="avg" min="0" max="1000" required>
+
+    <input type="submit" value="submit">
+  </fieldset>
+</form>
+
   <table id = 'cookieTable'>
     <tr id = 'tableTitle'>
       <th>Location </th>
@@ -19,6 +45,13 @@
       <th>4pm-5pm</th>
       <th>Total Hour</th>
     </tr>
+    <tbody id = 'table-body'>
+    </tobdy>
+
+    <tfoot>
+      
+    </tfoot>
+
   </table>
   <script type="text/javascript" src="./app.js"></script>
 </body>

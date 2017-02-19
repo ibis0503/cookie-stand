@@ -1,4 +1,24 @@
-// build Constructor Functions
+'use strict';
+
+var allItems = [];
+// call 'form' into variable form
+var form = document.getElementById('form');
+// call 'table' into table
+var table = document.getElementById('cookieTable');
+// call 'table-body' into tbody
+var tbody = document.getElementById('table-body');
+// call 'tfoot' into tfoot[0]
+var tfoot = document.getElementsByTagName('tfoot')[0];
+
+// Set a variable
+var pikePlace = new cookieStand('Pike Place', 17, 88, 5.2);
+var seaTac = new cookieStand('SeaTac Airport', 6, 24, 1.2);
+var southCenter = new cookieStand('Southcenter', 11, 38, 1.9);
+var bellevueSquare = new cookieStand('Bellevue Square', 11, 38, 1.9);
+var alki = new cookieStand('Alki', 3, 24, 2.6);
+
+
+// add top 5 items into table this is Constructor Functions
 function cookieStand(name, min, max, avg) {
 	this.name = name;
 	this.min = min;
@@ -6,10 +26,14 @@ function cookieStand(name, min, max, avg) {
 	this.avg = avg;
 	this.sale = [];
 	this.totalsale = 0;
-	this.getRandom = function(min, max) {
+};
+
+	cookieStand.prototype.getRandom = function(min, max) {
 		return Math.random() * (max-min + 1) + min;
 	};
-	this.getHourlySale = function() {
+
+	// Create prototype for hourly sale
+	cookieStand.prototype.getHourlySale = function() {
 		for (var i = 0; i < 7; i++) {
 			var total = Math.floor(this.getRandom(this.min, this.max) * this.avg);
 			// Total value will add into sale array upto 6times
@@ -18,8 +42,9 @@ function cookieStand(name, min, max, avg) {
 			this.totalsale += total;
 		}
 	};
-	// create input inside of HTML tables
-	this.renderAsRow = function() {
+
+	// Create prototype for generate input inside of HTML tables
+	cookieStand.prototype.renderAsRow = function() {
 		var cookieTable = document.getElementById('cookieTable');
 		var trEl = document.createElement('tr');
 		var placeName = document.createElement('td');
@@ -42,17 +67,34 @@ function cookieStand(name, min, max, avg) {
 		total.textContent = this.totalsale;
 		trEl.appendChild(total);
 		cookieTable.appendChild(trEl);
-	}
-};
-// Set a variable
-var pikePlace = new cookieStand('Pike Place', 17, 88, 5.2);
-var seaTac = new cookieStand('SeaTac Airport', 6, 24, 1.2);
-var southCenter = new cookieStand('Southcenter', 11, 38, 1.9);
-var bellevueSquare = new cookieStand('Bellevue Square', 11, 38, 1.9);
-var alki = new cookieStand('Alki', 3, 24, 2.6);
+	};
+
 // Make a call
 pikePlace.renderAsRow();
 seaTac.renderAsRow();
 southCenter.renderAsRow();
 bellevueSquare.renderAsRow();
 alki.renderAsRow();
+
+//declaire the form
+var cookieForm = document.getElementById('form');
+//generate input into table
+function generateCookieForm(event) {
+	event.preventDefault();
+
+	var store_name = event.target.name.value;
+	var min_cust = parseFloat(event.target.min.value);
+	var max_cust = parseFloat(event.target.max.value);
+	var avg_cookie = parseFloat(event.target.avg.value);
+	//adding the newCookieStore to the cookieStandsArray
+	var newCookieStore = new cookieStand(store_name, min_cust, max_cust, avg_cookie);
+	// Make a call
+	newCookieStore.renderAsRow();
+	//we're emptying the form
+	event.target.name.value = null;
+	event.target.min.value = null;
+	event.target.max.value = null;
+	event.target.avg.value = null;
+}
+//listening for the click and running handler above
+cookieForm.addEventListener('submit', generateCookieForm);
