@@ -6,8 +6,26 @@
   <link type="text/css" rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <h1>Cookie Stand</h1>
+  <div id = "nav">
+  <nav>
+    <ul id="logo-container">
+      <li id="logo">
+        <div id="logo-text"><a class="nav-style" href= "../cookie-stand/index.html">PAT'S</a>
+        </div>
+      </li>
+    </ul>
+    <ul id="main-nav">
+      <li><a class="nav-style" href= "../cookie-stand/sale.html">Sale</a></li>
+      <li>Merchandise</li>
+      <li>Event</li>
+      <li>About</li>
+    </ul><!-- min-nav -->
+  </nav>
+</div> <!-- nav -->
+</header>
 
+
+<div id = "title">
   <form id="form">
   <fieldset>
     <legend>Add store name, min/max customers, and average cookies here. </legend>
@@ -32,7 +50,9 @@
     <input type="submit" value="submit">
   </fieldset>
 </form>
+</div>
 
+<div id = "store">
   <table id = 'cookieTable'>
     <tr id = 'tableTitle'>
       <th>Location </th>
@@ -53,6 +73,7 @@
     </tfoot>
 
   </table>
+</div>
   <script type="text/javascript" src="./app.js"></script>
 </body>
 </html>

@@ -248,3 +248,31 @@ td {
 	padding: 18px;
 	text-align: center;
 }
+
+.nav-style {
+	font-family: 'Roboto';
+  color: #fff;
+  font-weight: 400;
+  font-size: 14px;
+  list-style-type: none;
+	text-decoration: none;
+}
+
+#logo-container {
+	margin:0;
+	width: 140px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#logo {
+	margin: 0;
+	height: 40px;
+	width: 140px;
+	background-image: url(../cookie-stand/assets/salmon.png);
+	background-size: cover;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
