@@ -1,3 +1,29 @@
+
+var hours = ['10:00am - 11:00am', '11:00am - 12:00pm', '12:00pm - 1:00pm', '1:00pm - 2:00pm', '2:00pm - 3:00pm', '3:00pm - 4:00pm', '4:00pm - 5:00pm'];
+
+// create header row for HTML tables
+var makeHeaderRow = function() {
+	var cookieTable = document.getElementById('cookieTable');
+	var trEl = document.getElementById('tableTitle');
+	var thEl = document.createElement('th');
+	thEl.textContent = ' ';
+	trEl.appendChild(thEl);
+
+for (var i = 0; i < hours.length; i++) {
+	var thEl = document.createElement('th');
+	thEl.textContent = hours[i];
+	trEl.appendChild(thEl);
+};
+
+var thEl = document.createElement('th');
+thEl.textContent = 'Total Hour';
+trEl.appendChild(thEl);
+};
+
+// make a call
+makeHeaderRow();
+
+// build Constructor Functions
 'use strict';
 
 var allItems = [];
@@ -34,7 +60,7 @@ function cookieStand(name, min, max, avg) {
 
 	// Create prototype for hourly sale
 	cookieStand.prototype.getHourlySale = function() {
-		for (var i = 0; i < 7; i++) {
+		for (var i = 0; i < hours.length; i++) {
 			var total = Math.floor(this.getRandom(this.min, this.max) * this.avg);
 			// Total value will add into sale array upto 6times
 			this.sale.push(total);
@@ -53,7 +79,7 @@ function cookieStand(name, min, max, avg) {
 		cookieTable.appendChild(trEl);
 		this.getHourlySale();
 		// Using for loop to display for each hours and getRandom
-		for (var i = 0; i < 7; i++)	{
+		for (var i = 0; i < hours.length; i++)	{
 			// Get an element from li
 			var cookieStandData = document.createElement('td');
 			// Create and populate an LI element for each of the data points that you want to render
