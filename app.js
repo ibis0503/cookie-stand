@@ -1,5 +1,6 @@
 'use strict';
 
+
 var allItems = [];
 // call 'form' into variable form
 var form = document.getElementById('form');
@@ -17,6 +18,29 @@ var southCenter = new cookieStand('Southcenter', 11, 38, 1.9);
 var bellevueSquare = new cookieStand('Bellevue Square', 11, 38, 1.9);
 var alki = new cookieStand('Alki', 3, 24, 2.6);
 
+
+var hours = ['10:00am - 11:00am', '11:00am - 12:00pm', '12:00pm - 1:00pm', '1:00pm - 2:00pm', '2:00pm - 3:00pm', '3:00pm - 4:00pm', '4:00pm - 5:00pm'];
+
+// create header row for HTML tables
+var makeHeaderRow = function() {
+	var cookieTable = document.getElementById('cookieTable');
+	var trEl = document.getElementById('tableTitle');
+	var thEl = document.createElement('th');
+	thEl.textContent = ' ';
+	trEl.appendChild(thEl);
+
+for (var i = 0; i < hours.length; i++) {
+	var thEl = document.createElement('th');
+	thEl.textContent = hours[i];
+	trEl.appendChild(thEl);
+};
+
+var thEl = document.createElement('th');
+thEl.textContent = 'Total Hour';
+trEl.appendChild(thEl);
+};
+
+makeHeaderRow();
 
 // add top 5 items into table this is Constructor Functions
 function cookieStand(name, min, max, avg) {
